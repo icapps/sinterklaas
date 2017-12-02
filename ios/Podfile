@@ -1,33 +1,26 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '9.0'
 
 target 'Sinterklaas' do
-  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
+  use_frameworks!
 
-  # Pods for Sinterklaas
+  # Setup Crashreporting
+  pod 'Fabric'
+  pod 'Crashlytics'
 
-  target 'Sinterklaas-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  # Setup React Native through Cocoapods
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'Core',
+    'BatchedBridge',
+    'DevSupport',
+    'RCTText',
+    'RCTNetwork',
+    'RCTWebSocket'
+  ]
+  # Explicitly include Yoga if you are using RN >= 0.42.0
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
-  target 'SinterklaasTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-end
-
-target 'Sinterklaas-tvOS' do
-  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
-
-  # Pods for Sinterklaas-tvOS
-
-  target 'Sinterklaas-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
+  # Third party deps podspec link
+  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+  pod 'GLog', :podspec => '../node_modules/react-native/third-party-podspecs/GLog.podspec'
+  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 end

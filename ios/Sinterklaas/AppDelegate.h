@@ -1,16 +1,16 @@
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
+//
+//  AppDelegate.h
+//  Sinterklaas
+//
+//  Created by Dylan Gyesbreghs on 02/12/2017.
+//  Copyright © 2017 iCapps. All rights reserved.
+//
 
-#import <UIKit/UIKit.h>
+#import <React/RCTRootView.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) RCTRootView *rootView;
 
 @end
