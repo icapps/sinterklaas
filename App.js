@@ -60,12 +60,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#FF362E',
   },
   intro: {
+    fontFamily: 'Optima-Regular',
     fontSize: 26,
     textAlign: 'center',
     color: '#ffffff',
     margin: 10,
   },
   song: {
+    fontFamily: 'Optima-Regular',
     fontSize: 20,
     textAlign: 'left',
     color: '#ffffff',
