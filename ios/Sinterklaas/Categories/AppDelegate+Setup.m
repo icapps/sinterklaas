@@ -29,7 +29,7 @@
 
 - (void)setupRootViewWithOptions:(NSDictionary *)options
 {
-  NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.bundle?platform=ios"];
+  NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.bundle?platform=ios&dev=false"];
   self.rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                               moduleName:kModuleName
                                        initialProperties:nil
