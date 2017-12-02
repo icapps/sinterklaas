@@ -48,8 +48,6 @@ SLACK_ROOM = '#jenkins'
 lane :pr do
   # Run the tests.
   run_tests
-  # Run the code coverage generation.
-  run_coverage
 end
 
 # The beta lane deploys the appication to HockeyApp but prior to deploying there
@@ -93,20 +91,6 @@ private_lane :run_tests do |options|
     clean:         true,
     configuration: 'Debug',
     device:        'iPad Air 2'
-  )
-end
-
-# Create code coverage reports. We ignore some pods because otherwise we get an
-# incorrect coverage overview.
-private_lane :run_coverage do
-  xcov(
-    workspace:        WORKSPACE,
-    scheme:           SCHEME,
-    exclude_targets:  %w(
-      Stella.framework
-      Nimble.framework
-      Quick.framework
-    ).join(', ')
   )
 end
 

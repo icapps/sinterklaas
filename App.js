@@ -1,37 +1,53 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * Sinterklaas
  * @flow
  */
 
 import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
   Text,
   View
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
 export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <View>
+          <Text style={styles.intro}>
+            Dag Sinterklaasje
+          </Text>
+        </View>
+        <View>
+          <Text style={styles.song}>
+            Dag Sinterklaasje, dáág, dáág, dáág, dáág Zwarte Piet.
+            {"\n"}
+            Dag Sinterklaasje, dáág, dáág, luister naar ons afscheidslied.
+            {"\n"}
+            {"\n"}
+            {"\n"}
+            Dag Sinterklaasje, dáág, dáág, dáág, dáág Zwarte Piet.
+            {"\n"}
+            Dag Sinterklaasje, dáág, dáág, luister naar ons afscheidslied.
+            {"\n"}
+            {"\n"}
+            {"\n"}
+            Dag Sinterklaasje, dáág, dáág, dáág, dáág Zwarte Piet.
+            {"\n"}
+            Dag Sinterklaasje, dáág, dáág, luister naar ons afscheidslied.
+            {"\n"}
+            Dag Sinterklaasje, dáág, dáág, dáág, dáág Zwarte Piet.
+            {"\n"}
+            Dag Sinterklaasje, dáág, dáág, luister naar ons afscheidslied.
+            {"\n"}
+            {"\n"}
+            {"\n"}
+            Dag Sinterklaasje, dáág, dáág, dáág, dáág Zwarte Piet.
+            {"\n"}
+            Dag Sinterklaasje, dáág, dáág, luister naar ons afscheidslied.
+          </Text>
+        </View>
       </View>
     );
   }
@@ -41,17 +57,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#FF362E',
   },
-  welcome: {
-    fontSize: 20,
+  intro: {
+    fontSize: 26,
     textAlign: 'center',
+    color: '#ffffff',
     margin: 10,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  song: {
+    fontSize: 20,
+    textAlign: 'left',
+    color: '#ffffff',
+    margin: 10,
   },
 });
