@@ -1,0 +1,13 @@
+//
+//  Shared.xcconfig
+//  Sinterklaas
+//
+//  Created by Dylan Gyesbreghs on 02/12/2017.
+//  Copyright © 2017 iCapps. All rights reserved.
+//
+
+PRODUCT_NAME = Sinterklaas
+PRODUCT_BUNDLE_IDENTIFIER = com.icapps.sinterklaas
+
+CODE_SIGN_STYLE = Manual
+DEVELOPMENT_TEAM = FAJTRUZ6J9

@@ -1,0 +1,12 @@
+//
+//  Release.xcconfig
+//  Sinterklaas
+//
+//  Created by Dylan Gyesbreghs on 02/12/2017.
+//  Copyright © 2017 iCapps. All rights reserved.
+//
+
+#include "Shared.xcconfig"
+
+CODE_SIGN_IDENTITY = iPhone Distribution
+PROVISIONING_PROFILE_SPECIFIER = Sinterklaas Release
