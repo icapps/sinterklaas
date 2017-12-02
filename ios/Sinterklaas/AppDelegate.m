@@ -13,8 +13,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [self setupWithOptions:launchOptions];
-  return YES;
+    [self setupWithOptions:launchOptions];
+    return YES;
 }
 
 @end

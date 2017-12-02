@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* SinterklaasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SinterklaasTests.m */; };
 		328E5507F3BA27C67B3EAB3E /* Pods_Sinterklaas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A859B28479ECB56A65340154 /* Pods_Sinterklaas.framework */; };
 		485EEE501FD3268F00BE83CC /* AppDelegate+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = 485EEE4F1FD3268F00BE83CC /* AppDelegate+Setup.m */; };
+		485EEE571FD3353F00BE83CC /* AppDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 485EEE561FD3353F00BE83CC /* AppDelegateTests.m */; };
 		486E00741FD1F3B300DB6EBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 486E006C1FD1F3B200DB6EBB /* AppDelegate.m */; };
 		486E00751FD1F3B300DB6EBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 486E006E1FD1F3B300DB6EBB /* main.m */; };
 		486E00761FD1F3B300DB6EBB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486E00701FD1F3B300DB6EBB /* LaunchScreen.xib */; };
-		486E00771FD1F3B300DB6EBB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 486E00721FD1F3B300DB6EBB /* Info.plist */; };
 		486E00781FD1F3B300DB6EBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 486E00731FD1F3B300DB6EBB /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +30,6 @@
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = main.jsbundle; path = ../main.jsbundle; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* SinterklaasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SinterklaasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* SinterklaasTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SinterklaasTests.m; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Sinterklaas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sinterklaas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14F083F570D2B539988F1E1B /* Pods-Sinterklaas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sinterklaas.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sinterklaas/Pods-Sinterklaas.release.xcconfig"; sourceTree = "<group>"; };
 		485EEE4E1FD3268F00BE83CC /* AppDelegate+Setup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Setup.h"; sourceTree = "<group>"; };
@@ -39,6 +37,7 @@
 		485EEE521FD3294000BE83CC /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		485EEE531FD3294900BE83CC /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		485EEE541FD329C900BE83CC /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
+		485EEE561FD3353F00BE83CC /* AppDelegateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegateTests.m; sourceTree = "<group>"; };
 		486E006C1FD1F3B200DB6EBB /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		486E006D1FD1F3B300DB6EBB /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		486E006E1FD1F3B300DB6EBB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -71,7 +70,7 @@
 		00E356EF1AD99517003FC87E /* SinterklaasTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* SinterklaasTests.m */,
+				485EEE561FD3353F00BE83CC /* AppDelegateTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
 			path = SinterklaasTests;
@@ -82,7 +81,7 @@
 			children = (
 				00E356F11AD99517003FC87E /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		13B07FAE1A68108700A75B9A /* Sinterklaas */ = {
@@ -145,9 +144,9 @@
 				B2F38BFCF3E743854B8582F1 /* Pods */,
 				1813F9B3A4E55BB7AB72DE53 /* Frameworks */,
 			);
-			indentWidth = 2;
+			indentWidth = 4;
 			sourceTree = "<group>";
-			tabWidth = 2;
+			tabWidth = 4;
 			usesTabs = 0;
 		};
 		83CBBA001A601CBA00E9B192 /* Products */ = {
@@ -200,6 +199,7 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				997C873D1973892664CFBFDA /* [CP] Embed Pods Frameworks */,
 				9D8FF0A2FFF6D2F43DF1D45A /* [CP] Copy Pods Resources */,
+				485EEE551FD333DC00BE83CC /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -216,7 +216,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = iCapps;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -263,7 +263,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				486E00781FD1F3B300DB6EBB /* Images.xcassets in Resources */,
-				486E00771FD1F3B300DB6EBB /* Info.plist in Resources */,
 				486E00761FD1F3B300DB6EBB /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +301,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		485EEE551FD333DC00BE83CC /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 27340718daae3276b2b87eeaab4584f42541745b 0a9f9212e0e2937708b341faf2855ad1b52e18484d44d3c6e3b8201fa77221e9";
 		};
 		997C873D1973892664CFBFDA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -351,7 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* SinterklaasTests.m in Sources */,
+				485EEE571FD3353F00BE83CC /* AppDelegateTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,13 +408,14 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SinterklaasTests/Info.plist;
+				INFOPLIST_FILE = "SinterklaasTests/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sinterklaas.app/Sinterklaas";
 			};
@@ -412,13 +426,14 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = SinterklaasTests/Info.plist;
+				INFOPLIST_FILE = "SinterklaasTests/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sinterklaas.app/Sinterklaas";
 			};
@@ -464,23 +479,34 @@
 			baseConfigurationReference = 485EEE521FD3294000BE83CC /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -505,23 +531,33 @@
 			baseConfigurationReference = 485EEE531FD3294900BE83CC /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
