@@ -6,6 +6,7 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
+  ScrollView,
   Text,
   View
 } from 'react-native';
@@ -13,7 +14,7 @@ import {
 export default class App extends Component<{}> {
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View>
           <Text style={styles.intro}>
             Dag Sinterklaasje
@@ -48,7 +49,7 @@ export default class App extends Component<{}> {
             Dag Sinterklaasje, dáág, dáág, luister naar ons afscheidslied.
           </Text>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
