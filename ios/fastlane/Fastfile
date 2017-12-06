@@ -1,5 +1,5 @@
 # Fix the fastlane version so that we don't get any surprises while deploying.
-fastlane_version '2.65.0'
+fastlane_version '2.68.0'
 
 # Select the correct version of Xcode we want to build with on Jenkins.
 xcode_select('/Applications/Xcode9.1.app') if is_ci?
@@ -47,7 +47,7 @@ SLACK_ROOM = '#jenkins'
 # coding guidelines and that the application's tests run.
 lane :pr do
   # Run the tests.
-  run_tests
+  test
 end
 
 # The beta lane deploys the appication to HockeyApp but prior to deploying there
@@ -55,7 +55,7 @@ end
 # build number...
 lane :beta do
   # Run the tests.
-  run_tests
+  test
   # We reset the git repository because the tests could update some files.
   reset_git_repo force: true
   # We increment the build number without commiting.
@@ -66,12 +66,7 @@ lane :beta do
   # Build the application with the given configuration.
   build(
     configuration: 'Release',
-    export_options: {
-      method: 'enterprise',
-      provisioningProfiles: {
-        "com.icapps.sinterklaas" => "Sinterklaas Release"
-      }
-    }
+    export_options: export_options_for :release
   )
   # Upload the build to HockeyApp.
   upload_to_hockey
@@ -84,8 +79,8 @@ end
 #########################
 
 # Run the tests.
-private_lane :run_tests do |options|
-  scan(
+private_lane :test do |options|
+  run_tests(
     workspace:     WORKSPACE,
     scheme:        SCHEME,
     clean:         true,
@@ -108,7 +103,7 @@ end
 
 # Build application
 private_lane :build do |options|
-  gym(
+  build_app(
     workspace:            WORKSPACE,
     scheme:               SCHEME,
     configuration:        options[:configuration],
@@ -132,6 +127,21 @@ private_lane :upload_to_testflight do
     app_identifier:  TESTFLIGHT_IDENTIFIER,
     skip_submission: true # Don't automagically submit for review.
   )
+end
+
+##################
+### Properties ###
+##################
+
+def export_options_for(configuration)
+  if configuration == :release
+    {
+      method: 'enterprise',
+      provisioningProfiles: {
+        "com.icapps.sinterklaas" => "Sinterklaas Release"
+      }
+    }
+  end
 end
 
 #################
