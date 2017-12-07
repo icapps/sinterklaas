@@ -1,0 +1,180 @@
+# Fix the fastlane version so that we don't get any surprises while deploying.
+fastlane_version '2.68.0'
+
+# Select the correct version of Xcode we want to build with on Jenkins.
+xcode_select('/Applications/Xcode9.1.app') if is_ci?
+
+# Setup Jenkins
+setup_jenkins(result_bundle: false, output_directory: false)
+
+# Unlock the Keychain
+keychain_password = ENV['JENKINS_KEYCHAIN_PASSWORD'] if is_ci?
+unlock_keychain(path: 'login.keychain', password: keychain_password) if is_ci? && keychain_password
+
+# Don't generate README files.
+skip_docs
+
+# Clear derived data folder
+clear_derived_data if is_ci?
+
+# Install required provisioning profiles
+install_provisioning_profiles if is_ci?
+
+#####################
+### CONFIGURATION ###
+#####################
+
+# Project configuration.
+SCHEME =    'Sinterklaas'
+WORKSPACE = 'Sinterklaas.xcworkspace'
+PROJECT =   'Sinterklaas.xcodeproj'
+
+# Hockey configuration.
+HOCKEY_APP_API_KEY = ENV['FL_HOCKEY_API_TOKEN']
+HOCKEY_APP_TEAMS =   %w(1234)
+
+# TestFlight configuration.
+TESTFLIGHT_IDENTIFIER = 'com.icapps.sinterklaas'
+
+# Deployment configuration.
+SLACK_ROOM = '#jenkins'
+
+####################
+### PUBLIC LANES ###
+####################
+
+# This lane is used for checking if your pull request's code is according to our 
+# coding guidelines and that the application's tests run.
+lane :pr do
+  # Run the tests.
+  test
+end
+
+# The beta lane deploys the appication to HockeyApp but prior to deploying there
+# are some other tasks executed like updating translations, incrementing the
+# build number...
+lane :beta do
+  # Run the tests.
+  test
+  # We reset the git repository because the tests could update some files.
+  reset_git_repo force: true
+  # We increment the build number without commiting.
+  increment_build_number
+  # Configuration of the translations importer can be found in the
+  # `.translations` file in the root of the repository.
+  update_translations
+  # Build the application with the given configuration.
+  # build(
+  #   configuration: 'Release',
+  #   export_options: export_options_for :release
+  # )
+  # Upload the build to HockeyApp.
+  upload_to_hockey
+  # When everything succeeds, commit and push the changes.
+  commit_tag_and_push
+end
+
+#########################
+### 🔑  PRIVATE LANES ###
+#########################
+
+# Run the tests.
+private_lane :test do |options|
+  run_tests(
+    workspace:     WORKSPACE,
+    scheme:        SCHEME,
+    clean:         true,
+    configuration: 'Debug',
+    device:        'iPad Air 2'
+  )
+end
+
+# Commit the version bump and tag this commit. When this succeeds we push the
+# changes to the origin.
+private_lane :commit_tag_and_push do
+  # Persist the git changes.
+  commit_version_bump(
+    force:     true,
+    xcodeproj: PROJECT
+  )
+  add_git_tag
+  push_to_git_remote
+end
+
+# Build application
+private_lane :build do |options|
+  build_app(
+    workspace:            WORKSPACE,
+    scheme:               SCHEME,
+    configuration:        options[:configuration],
+    export_options:       options[:export_options]
+  )
+end
+
+# Upload the build to HockeyApp and open it up for the given teams.
+private_lane :upload_to_hockey do
+  hockey(
+    api_token:    HOCKEY_APP_API_KEY,
+    teams:        HOCKEY_APP_TEAMS.join(','),
+    status:       '2', # The status is available for download.
+    release_type: '0' # We set the release type to be beta.
+  )
+end
+
+# Upload the build to TestFlight.
+private_lane :upload_to_testflight do
+  pilot(
+    app_identifier:  TESTFLIGHT_IDENTIFIER,
+    skip_submission: true # Don't automagically submit for review.
+  )
+end
+
+##################
+### Properties ###
+##################
+
+def export_options_for(configuration)
+  if configuration == :release
+    {
+      method: 'enterprise',
+      provisioningProfiles: {
+        "com.icapps.sinterklaas" => "Sinterklaas Release"
+      }
+    }
+  end
+end
+
+#################
+### CALLBACKS ###
+#################
+
+# Post a notification to Slack every time a lane was successful.
+after_all do |lane|
+  next unless is_ci?
+
+  slack(
+    channel:               SLACK_ROOM,
+    success:               true,
+    default_payloads:      [:lane, :test_result],
+    attachment_properties: {
+      message: "#{last_git_commit[:author]} did an excelent job.",
+    }
+  )
+  clean_build_artifacts
+end
+
+# When an error occurs we post a failure notification to Slack.
+error do |lane, exception|
+  next unless is_ci?
+
+  slack(
+    message:               exception.message,
+    channel:               SLACK_ROOM,
+    success:               false,
+    default_payloads:      [:lane, :test_result],
+    attachment_properties: {
+      title: "#{last_git_commit[:author]} broke all the things.",
+    }
+  )
+  clean_build_artifacts
+end
